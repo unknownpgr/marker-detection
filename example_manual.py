@@ -6,6 +6,7 @@ K = 6
 
 ALVAR_DICT = {
     "ID_0": '1101111011101010111001110',
+    "ID_1": '1101111011101011110100110'  # Be careful when the image is flipped horizontally. Asymmetric markers will not be recognized when image flipped horizontally.
 }
 
 _ALVAR_DICT = {}
@@ -48,6 +49,11 @@ def parse_marker(marker):
 
 # Open the device at the ID 0
 cap = cv2.VideoCapture(0)
+
+# Decrease frame size for faster processing
+cap.set(3, 640)
+cap.set(4, 480)
+
 
 while True:
     # Capture frame-by-frame
